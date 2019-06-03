@@ -36,11 +36,13 @@
                     <strong>首页</strong>
                 </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            <button id="navbars" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
                     aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse " >
+
+            <!--class="collapse navbar-collapse "-->
+            <div  id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto ">
 
                     <!--<li class="nav-item dropdown">-->
@@ -81,12 +83,11 @@
     </div>
 </header>
 
-
     <link href="assets/css/mm-vertical.css" rel="stylesheet" type="text/css" />
 
-    <div class="row">
+    <div class="row" >
             <nav class="sidebar-nav col-md-2" id="navbarsExampleDefault">
-                <ul class="metismenu" id="menu1" style="text-align:center" >
+                <ul class=" metismenu" id="menu1" style="text-align:center" >
 
                     <!--<li>-->
                         <!--<a class="has-arrow" href="#">-->
@@ -266,7 +267,7 @@
                         if(sysAuthoritiesTree[i].children != undefined){
                             for (var j = 0; j < sysAuthoritiesTree[i].children.length; j++) {
                                 str+=`<li>`+
-                                    `<a href="`+sysAuthoritiesTree[i].children[j].url+`.html" target = "mframe"><span ></span>`+sysAuthoritiesTree[i].children[j].name+`</a>`+
+                                    `<a href="`+sysAuthoritiesTree[i].children[j].url+`.html" onclick="clickNavbars()" target = "mframe"><span ></span>`+sysAuthoritiesTree[i].children[j].name+`</a>`+
                                     `</li>`;
                             }
                         }
@@ -308,6 +309,13 @@
     //      changeFrameHeight();
 
     // }
+
+
+    // 触发折叠菜单
+    // function clickNavbars(){
+    //     $("#navbars").click();
+    // }
+
 
 
     //退出删除cookie

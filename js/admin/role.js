@@ -94,7 +94,7 @@ function findPage(pageNum,search){
                         console.log(originalEvent);
                         console.log(type);
                         console.log(page);
-                        findPage(page);
+                        findPage(page,search);
                     }
                 }
                 $('.pagination').bootstrapPaginator(options);

@@ -27,6 +27,7 @@ var pageNum = 1;
 //打开页面加载列表
 findPage(pageNum);
 
+var search="";
 //加载列表
 function findPage(pageNum,search){
     $.ajax({
@@ -96,7 +97,7 @@ function findPage(pageNum,search){
                         console.log(originalEvent);
                         console.log(type);
                         console.log(page);
-                        findPage(page);
+                        findPage(page,search);
                     }
                 }
                 $('.pagination').bootstrapPaginator(options);
