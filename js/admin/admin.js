@@ -278,6 +278,14 @@ function save() {
         return false;
     }
 
+    var mobile = $("#mobile_add");
+
+    if(mobile.val()==""){
+        mobile.focus();
+        return false;
+    }
+
+
     //封装数据
     var formObject = {};
     var formArray =$("#save").serializeArray();
@@ -306,12 +314,12 @@ function save() {
                 findPage(pageNum);
             }else {
 
-                erro();
+                //自定义错误消息
+                erroMy(result.msg);
 
             }
 
-            //重置表单
-            document.getElementById("save").reset();
+
         },
         error : function() {
 
@@ -334,6 +342,13 @@ function update() {
 
     if(username.val()==""){
         username.focus();
+        return false;
+    }
+
+    var mobile = $("#mobile_edit");
+
+    if(mobile.val()==""){
+        mobile.focus();
         return false;
     }
 
@@ -369,12 +384,11 @@ function update() {
                 findPage(pageNum);
             }else {
 
-                erro();
+                //自定义错误消息
+                erroMy(result.msg);
 
             }
 
-            //重置表单
-            document.getElementById("update").reset();
         },
         error : function() {
 
@@ -478,7 +492,17 @@ document.onkeydown = function (e) {
 }
 
 
-
+/**
+ * 自定义错误提示
+ * @param o
+ */
+function erroMy(o){
+    $('#erroAlert').text(o);
+    $('#erro').modal('show');
+    window.setTimeout(function(){
+        $('#erro').modal('hide');
+    }, 1000);
+}
 
 /**
  * 错误提示
@@ -489,6 +513,9 @@ function erro(){
         $('#erro').modal('hide');
     }, 1000);
 }
+
+
+
 
 /**
  * 成功提示

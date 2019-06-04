@@ -84,7 +84,7 @@
 <!-- 模态框（成功） -->
 <div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
     <div class="modal-dialog" >
-        <div id="myAlert" class="alert alert-success" style="text-align:center">
+        <div  class="alert alert-success" style="text-align:center">
             <strong>成功</strong>
         </div>
     </div><!-- /.modal -->
@@ -95,8 +95,8 @@
 <!-- 模态框（失败） -->
 <div class="modal fade" id="erro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
     <div class="modal-dialog" >
-        <div id="myAlert" class="alert alert-danger" style="text-align:center" >
-            <strong>失败</strong>
+        <div  class="alert alert-danger" style="text-align:center" >
+            <strong id="erroAlert">失败</strong>
         </div>
     </div><!-- /.modal -->
 </div>
@@ -105,7 +105,7 @@
 <!-- 模态框（程序异常） -->
 <div class="modal fade" id="exception" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
     <div class="modal-dialog" >
-        <div id="myAlert" class="alert alert-danger" style="text-align:center" >
+        <div  class="alert alert-danger" style="text-align:center" >
             <strong>程序异常</strong>
         </div>
     </div><!-- /.modal -->
@@ -115,7 +115,7 @@
 <!-- 模态框（选择错误提示） -->
 <div class="modal fade" id="selectErro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
     <div class="modal-dialog" >
-        <div id="myAlert" class="alert alert-danger" style="text-align:center" >
+        <div  class="alert alert-danger" style="text-align:center" >
             <strong>请选择要操作的数据</strong>
         </div>
     </div><!-- /.modal -->
@@ -137,6 +137,8 @@
     $("#search").keyup(function(){
         findPage(1,$("#search").val());
     });
+
+
 
 </script>
 </html>
