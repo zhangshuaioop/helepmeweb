@@ -330,8 +330,6 @@ function save() {
 
             }
 
-            //重置表单
-            document.getElementById("save").reset();
         },
         error : function() {
 
@@ -392,8 +390,6 @@ function update() {
 
             }
 
-            //重置表单
-            document.getElementById("update").reset();
         },
         error : function() {
 
