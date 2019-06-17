@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Banner列表</title>
+
+    <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../css/bootstrap/bootstrap-fileupload.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/viewer/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/viewer/viewer.css" rel="stylesheet" />
+    <script src="../../js/jquery.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/bootstrap-paginator.js"></script>
+    <script src="../../js/viewer/main.js"></script>
+    <script src="../../js/viewer/viewer.js"></script>
+    <script src="../../js/bootbox.js"></script>
+    <script src="../../js/admin/common/common.js"></script>
+    <script src="../../js/admin/banner.js"></script>
+    <script src="../../js/bootstrap/bootstrap-fileupload.js"></script>
+
+
+</head>
+<body>
+<ol class="breadcrumb">
+    <li><a href="../../index.html">首页</a></li>
+    <li class="active">Banner列表</li>
+</ol>
+
+
+
+
+
+
+<div class="row">
+
+    <div class="col-xs-6 col-sm-10">
+        <button type="button" class="btn btn-primary"  onclick="add()" >添加</button>
+        <button type="button" class="btn btn-info" data-toggle="modal" onclick="edit()" >编辑</button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" onclick="deletes()">删除</button>
+    </div>
+    <div class="col-xs-6 col-sm-2">
+        <input type="text" class="form-control" id="search" placeholder="搜索">
+    </div>
+</div>
+
+
+
+
+
+
+    <div class="table-responsive">
+<table class="table table-striped table-bordered table-hover" id="viewer">
+    <tr>
+        <td >#</td>
+        <td >标题</td>
+        <td >图片</td>
+        <td >描述</td>
+        <td >是否启用</td>
+        <td >创建时间</td>
+    </tr>
+    <tbody id="content">
+
+    </tbody>
+</table>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-12 text-right">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+
+
+<!--引入添加modal-->
+<div id="addModal"></div>
+<!--引入编辑modal-->
+<div id="editModal"></div>
+
+
+
+
+
+<!-- 模态框（成功） -->
+<div class="modal fade" id="success" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" >
+        <div  class="alert alert-success" style="text-align:center">
+            <strong>成功</strong>
+        </div>
+    </div><!-- /.modal -->
+</div>
+
+
+
+<!-- 模态框（失败） -->
+<div class="modal fade" id="erro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" >
+        <div  class="alert alert-danger" style="text-align:center" >
+            <strong id="erroAlert">失败</strong>
+        </div>
+    </div><!-- /.modal -->
+</div>
+
+
+<!-- 模态框（程序异常） -->
+<div class="modal fade" id="exception" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" >
+        <div  class="alert alert-danger" style="text-align:center" >
+            <strong>程序异常</strong>
+        </div>
+    </div><!-- /.modal -->
+</div>
+
+
+<!-- 模态框（选择错误提示） -->
+<div class="modal fade" id="selectErro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" >
+        <div  class="alert alert-danger" style="text-align:center" >
+            <strong>请选择要操作的数据</strong>
+        </div>
+    </div><!-- /.modal -->
+</div>
+
+
+
+</body>
+
+<script>
+
+
+    //页面引入
+    $("#addModal").load('add.html');
+    $("#editModal").load('edit.html');
+
+
+    //全局搜索
+    $("#search").keyup(function(){
+        findPage(1,$("#search").val());
+    });
+
+</script>
+
+
+
+</html>

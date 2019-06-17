@@ -25,7 +25,7 @@ img{max-width:100%;}
 body{
 	font-family: 'Droid Sans', sans-serif;
 	font-size:100%;
-	background: url(../images/bg.jpg);
+	background: url(/helepmeweb/css/images/bg.jpg);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center;
@@ -67,7 +67,7 @@ form li{
 
 }
 .icon{
-	background:url(../images/icons.png)  no-repeat 0px 0px;
+	background:url(/helepmeweb/css/images/icons.png)  no-repeat 0px 0px;
 	height:30px;
 	width:30px;
 	display: block;
@@ -75,11 +75,11 @@ form li{
 	margin: 12px 9px 9px 0px;
 }
 .user{
-	background: url(../images/icons.png) no-repeat 7px 1px;
+	background: url(/helepmeweb/css/images/icons.png) no-repeat 7px 1px;
 	
 }
 .lock{
-	background: url(../images/icons.png) no-repeat -22px 1px;
+	background: url(/helepmeweb/css/images/icons.png) no-repeat -22px 1px;
 }
 
 input[type="text"], input[type="password"] {
@@ -178,7 +178,7 @@ input[type="submit"]:hover {
 	-o-border-radius: 6px;
 }
 .alert-close {
-	background: url('../images/into.png') no-repeat 0px 3px;
+	background: url('/helepmeweb/css/images/into.png') no-repeat 0px 3px;
 	cursor: pointer;
 	height: 30px;
 	position: absolute;

@@ -45,7 +45,6 @@ function login() {
                     'rememberMe':0
                 }),
                 success: function (result) {
-                    console.log(result);//打印服务端返回的数据(调试用)
                     if (result.code == 200) {
         				
                     	$('#success').modal('show');

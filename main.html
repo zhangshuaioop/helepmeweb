@@ -234,12 +234,16 @@
 
 <script type="text/javascript">
 
+
+
     //获取到当前项目的名称
     // var contextPath = "/" + location.pathname.split("/")[1];
 
 
     //获取cookie
     var cookie = getCookie("token");
+
+    var str = "";
 
     if(cookie!=null){
         $.ajax({
@@ -258,24 +262,20 @@
                     //用户信息
                     var sysAdmin = data.data.sysAdmin;
 
-                    var str = "";
 
-                    for (var i = 0;i<sysAuthoritiesTree.length; i++) {
 
+                    //一级
+                    sysAuthoritiesTree.forEach(childrens=>{
                         str+=`<li>`+
-                            `<a href="#" class="has-arrow"><span ></span>`+sysAuthoritiesTree[i].name+`</a><ul>`;
-                        if(sysAuthoritiesTree[i].children != undefined){
-                            for (var j = 0; j < sysAuthoritiesTree[i].children.length; j++) {
-                                str+=`<li>`+
-                                    `<a href="`+sysAuthoritiesTree[i].children[j].url+`.html" onclick="clickNavbars()" target = "mframe"><span ></span>`+sysAuthoritiesTree[i].children[j].name+`</a>`+
-                                    `</li>`;
-                            }
+                            `<a href="#" class="has-arrow"><span ></span>`+childrens.name+`</a><ul>`;
+                        if(childrens.children != undefined && childrens.children.length>0){
+                            children(childrens.children);
                         }
 
                         str+=`</ul>`+
                             `</li>`;
-
-                    }
+                    })
+                    // console.log(str);
                     $("#menu1").metisMenu('dispose');
                     $("#menu1").append(str);
                     $("#menu1").metisMenu();
@@ -297,6 +297,24 @@
         window.location.href="login.html";
     }
 
+
+    //子级
+    function children(childrens) {
+
+        if(childrens != undefined){
+            childrens.forEach(it=>{
+                if(it.children != undefined && it.children.length>0){
+            // <a href="#" class="has-arrow"><span ></span>`+childrens.name+`</a><ul>
+                    str+=`<li><a href="#" class="has-arrow"><span ></span>`+it.name+`</a><ul>`;
+                    children(it.children);
+                    str+=`</ul>`+
+                        `</li>`;
+                }else {
+                    str+=`<li><a href="`+it.url+`.html" onclick="clickNavbars()" target = "mframe"><span ></span>`+it.name+`</a></li>`;
+                }
+            })
+        }
+    }
 
 
     // function changeFrameHeight(){

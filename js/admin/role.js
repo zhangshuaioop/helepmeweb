@@ -41,7 +41,6 @@ function findPage(pageNum,search){
             'pageSize':10
         }),
         success: function (result) {
-            console.log(result);//打印服务端返回的数据(调试用)
             if (result.code == 200) {
 
 
@@ -90,10 +89,10 @@ function findPage(pageNum,search){
                     },
                     onPageClicked: function (event, originalEvent, type, page) {
                         //给每个页眉绑定一个事件，其实就是ajax请求
-                        console.log(event);
-                        console.log(originalEvent);
-                        console.log(type);
-                        console.log(page);
+                        // console.log(event);
+                        // console.log(originalEvent);
+                        // console.log(type);
+                        // console.log(page);
                         findPage(page,search);
                     }
                 }
@@ -317,7 +316,6 @@ function save() {
         data: JSON.stringify(formObject),
         dataType: "json",
         success: function (result) {
-            console.log(result);//打印服务端返回的数据(调试用)
             if (result.code == 200) {
 
                 success();
@@ -487,8 +485,12 @@ document.onkeydown = function (e) {
     var theEvent = window.event || e;
     var code = theEvent.keyCode || theEvent.which;
     if (code == 13) {
-        $("#saveButton").click();
-        $("#editButton").click();
+        if($("#add").css("display")=="block"){
+            $("#saveButton").click();
+        }
+        if($("#edit").css("display")=="block"){
+            $("#editButton").click();
+        }
     }
 }
 

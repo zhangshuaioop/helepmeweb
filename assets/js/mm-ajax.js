@@ -33,7 +33,6 @@ $(function() {
         event.preventDefault();
         var $this = $(this);
         var url = $this.attr('data-url');
-        console.log(url);
 
         $.ajax({
           url: url,
